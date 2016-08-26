@@ -3,15 +3,15 @@ import quantize from './MMCQ'
 const componentToHex = (c) => {
   let hex = c.toString(16);
   return hex.length == 1 ? '0' + hex : hex ;
-}   
+}
 
 const rgbToHex = (rgb) => {
   let c = '';
   for(let i=0; i<3; i++){
     c += componentToHex(rgb[i]);
-  }   
+  }
   return c;
-}   
+}
 
 export default class ColorPalettes {
 
@@ -32,7 +32,7 @@ export default class ColorPalettes {
 
   _fetchImage (resolve, reject) {
     this._image = new Image();
-    this._image.crossOrigin = 'anonymous'; 
+    this._image.crossOrigin = 'anonymous';
     this._image.src = this._imageUrl;
     this._image.onload = () => {
       resolve();
@@ -62,7 +62,7 @@ export default class ColorPalettes {
 
   dominantThree ({format = 'rgb'} = {}){
 
-    return this.getPalette({
+    return this.getPalettes({
       colorCount: 5,
       format: format
     }).then( (res) => {
@@ -70,7 +70,7 @@ export default class ColorPalettes {
     });
   }
 
-  getPalette ({colorCount = 10, format = 'rgb'} = {}) {
+  getPalettes ({colorCount = 10, format = 'rgb'} = {}) {
 
     return this.fetching.then( (res) => {
       let pixels = this._getPixelArray();
