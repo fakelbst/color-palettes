@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>color-Palette demo</title>
+  <style>
+    .colors {
+      display: flex;
+    }
+    .color {
+      height: 50px;
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+  <img src="demo.jpg" alt="demo"  width="150" height="150">
+  <div id="app">
+    <input type="number" v-model="colorCount" min=2 max=256>
+    <div class="colors">
+      <div class="color" v-for="c in colors" v-bind:style="{background: '#'+c}"></div>
+    </div>
+  </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+  <script src="../dist/color-palettes.min.js"></script>
+  <script>
+    let a = new Vue({
+      el: '#app',
+      data: {
+        colorCount: 5,
+        colors: []
+      },
+      ready: function(){
+        var image = new Image()
+        image.src = 'demo.jpg'
+        image.onload = () => {
+          let colorPalette = new ColorPalettes(image);
+          colorPalette.getPalettes({
+            colorCount: this.colorCount,
+            format: 'hex'
+          }).then((r) => {
+            this.colors = r;
+          });
+        };
+      }
+    });
+
+    a.$watch('colorCount', function(){
+        let colorPalette = new ColorPalettes('demo.jpg');
+        colorPalette.getPalettes({
+          colorCount: this.colorCount,
+          format: 'hex'
+        }).then(function(r){
+          a.colors = r;
+        })
+      }, {
+    });
+  </script>
+</body>
+</html>
