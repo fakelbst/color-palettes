@@ -1,0 +1,38 @@
+
+body {
+  max-width: 69em;
+  margin: 0 auto;
+  padding: 0 1em 1.875em;
+  font-family: 'Lato', Calibri, Arial, sans-serif;
+}
+
+*, *:after, *:before {
+  box-sizing: border-box;
+}
+
+header {
+  padding: 2.875em 1.875em 1.875em;
+}
+
+.grid {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+}
+
+.grid li {
+  flex: 1;
+}
+
+.grid li img{
+  width: 200px;
+}
+
+.grid figure {
+  padding: 15px;
+}
+
+.grid figcaption {
+  padding: 25px;
+}
+

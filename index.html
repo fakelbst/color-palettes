@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>color-Palette demo</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .colors {
+      display: flex;
+    }
+    .color {
+      height: 50px;
+      width: 50px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>color-palettes</h1>
+  </header>
+  <a href="https://github.com/fakelbst/color-palettes"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+  <section>
+    <img src="demo.jpg" alt="demo"  width="150" height="150">
+    <div id="app">
+      <input type="number" v-model="colorCount" min=2 max=256>
+      <div class="colors">
+        <div class="color" v-for="c in colors" v-bind:style="{background: '#'+c}"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="grid">
+    <ul class="grid">
+      <li>
+        <figure>
+          <img src="images/arcade.png" alt="">
+          <figcaption>
+            <h3>Funeral</h3>
+            <p>Arcade Fire</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="images/exploions.png" alt="">
+          <figcaption>
+            <h3>Those Who Tell the Truth Shall Die, Those Who Tell the Truth Shall Live Forever</h3>
+            <p>Exploions In The Sky</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="">
+          <img src="images/kings.png" alt="">
+          <figcaption>
+            <h3>Riot On An Empty Street</h3>
+            <p>Kings Of Convenience</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure class="sigur">
+          <img src="images/sigur.png" alt="">
+          <figcaption>
+            <h3>Með Suð í Eyrum Við Spilum Endalaust</h3>
+            <p>Sigur Rós</p>
+          </figcaption>
+        </figure>
+      </li>
+      <li>
+        <figure>
+          <img src="images/pixies.jpeg" alt="">
+          <figcaption>
+            <h3>Doolittle</h3>
+            <p>Pixies</p>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </section>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.26/vue.min.js"></script>
+  <script src="color-palettes.min.js"></script>
+  <script src="main-compiled.js"></script>
+</body>
+</html>
