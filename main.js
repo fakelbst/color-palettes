@@ -1,12 +1,10 @@
-var _this = this;
-
 let a = new Vue({
   el: '#app',
   data: {
     colorCount: 5,
     colors: []
   },
-  ready: function () {
+  ready: function() {
     var image = new Image();
     image.src = 'demo.jpg';
     image.onload = () => {
@@ -14,7 +12,7 @@ let a = new Vue({
       colorPalette.getPalettes({
         colorCount: this.colorCount,
         format: 'hex'
-      }).then(r => {
+      }).then( (r) => {
         this.colors = r;
       });
     };
@@ -24,7 +22,7 @@ let a = new Vue({
 a.$watch('colorCount', () => {
   var colorPalette = new ColorPalettes('demo.jpg');
   colorPalette.getPalettes({
-    colorCount: _this.colorCount,
+    colorCount: this.colorCount,
     format: 'hex'
   }).then(function (r) {
     a.colors = r;
@@ -33,14 +31,15 @@ a.$watch('colorCount', () => {
 
 var figure = document.querySelectorAll('.grid figure');
 
-imagesLoaded(figure, function () {
-  figure.forEach(item => {
+imagesLoaded(figure, function(){
+  figure.forEach( (item) =>{
     new ColorPalettes(item.childNodes[1]).dominantThree({
       format: 'hex'
-    }).then(result => {
+    }).then((result) => {
       item.style.background = '#' + result[0];
       item.childNodes[3].childNodes[1].style.color = '#' + result[1];
       item.childNodes[3].childNodes[3].style.color = '#' + result[2];
     });
   });
 });
+
