@@ -40,24 +40,24 @@ export default class ColorPalettes {
   }
 
   _getPixelArray () {
-		return this._getCanvas().getContext('2d').getImageData(0, 0, this._image.width, this._image.height).data;
+    return this._getCanvas().getContext('2d').getImageData(0, 0, this._image.width, this._image.height).data;
   }
 
   _getCanvas () {
     if (this._canvas) {
-			return this._canvas;
-		}
+      return this._canvas;
+    }
 
-		let canvas, context;
+    let canvas, context;
 
-		this._canvas = document.createElement('canvas');
-		this._canvas.width = this._image.width;
-		this._canvas.height = this._image.height;
-		context = this._canvas.getContext('2d');
+    this._canvas = document.createElement('canvas');
+    this._canvas.width = this._image.width;
+    this._canvas.height = this._image.height;
+    context = this._canvas.getContext('2d');
 
-		context.drawImage(this._image, 0, 0);
+    context.drawImage(this._image, 0, 0);
 
-		return this._canvas;
+    return this._canvas;
   }
 
   dominantThree ({format = 'rgb'} = {}){
