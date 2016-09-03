@@ -14,6 +14,25 @@ header {
   padding: 2.875em 1.875em 1.875em;
 }
 
+.item {
+  padding: 15px;
+  background: rgba(0,0,0,0.05);
+  display: flex;
+}
+
+#app {
+  margin: 10px;
+}
+
+#app input {
+  padding: 2px 7px;
+  width: 260px;
+  height: 34px;
+  outline: none;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
@@ -26,6 +45,7 @@ header {
 
 .grid li img{
   width: 200px;
+  box-shadow: 0 10px 20px -4px rgba(0,0,0,0.6);
 }
 
 .grid figure {
