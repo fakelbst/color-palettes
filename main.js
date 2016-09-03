@@ -1,28 +1,29 @@
-let a = new Vue({
+var a = new Vue({
   el: '#app',
   data: {
     colorCount: 5,
     colors: []
   },
   ready: function() {
+    var that = this;
     var image = new Image();
     image.src = 'demo.jpg';
-    image.onload = () => {
+    image.onload = function() {
       var colorPalette = new ColorPalettes(image);
       colorPalette.getPalettes({
-        colorCount: this.colorCount,
+        colorCount: that.colorCount,
         format: 'hex'
-      }).then( (r) => {
-        this.colors = r;
+      }).then( function(r){
+        that.colors = r;
       });
     };
   }
 });
 
-a.$watch('colorCount', () => {
+a.$watch('colorCount', function() {
   var colorPalette = new ColorPalettes('demo.jpg');
   colorPalette.getPalettes({
-    colorCount: this.colorCount,
+    colorCount: a.colorCount,
     format: 'hex'
   }).then(function (r) {
     a.colors = r;
@@ -32,7 +33,7 @@ a.$watch('colorCount', () => {
 var figure = document.querySelectorAll('.grid figure');
 
 imagesLoaded(figure, function(){
-  figure.forEach( (item) =>{
+  figure.forEach( function(item){
     new ColorPalettes(item.childNodes[1]).dominantThree({
       format: 'hex'
     }).then((result) => {
