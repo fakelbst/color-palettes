@@ -4,7 +4,7 @@ var a = new Vue({
     colorCount: 5,
     colors: []
   },
-  ready: function() {
+  mounted: function() {
     var that = this;
     var image = new Image();
     image.src = 'demo.jpg';
